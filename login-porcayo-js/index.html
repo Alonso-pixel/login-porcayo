@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busco nobia</title>
+    <link rel="stylesheet" href="index.css">
+
+    <script type="text/javascript">
+        function generateCaptcha()
+        {
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+            var i;
+            for (i=0;i<4;i++){
+              var a = alpha[Math.floor(Math.random() * alpha.length)];
+              var b = alpha[Math.floor(Math.random() * alpha.length)];
+              var c = alpha[Math.floor(Math.random() * alpha.length)];
+              var d = alpha[Math.floor(Math.random() * alpha.length)];
+             }
+           var code = a + '' + b + '' + '' + c + '' + d;
+           document.getElementById("mainCaptcha").value = code
+         }
+         function CheckValidCaptcha(){
+             var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+             var string2 = removeSpaces(document.getElementById('txtInput').value);
+             if (string1 == string2){
+        // document.getElementById('success').innerHTML = "Form is validated Successfully";
+        // //alert("Form is validated Successfully");
+        //        return true;
+        location.replace("./correcto.html")
+        
+             }
+             else{       
+        document.getElementById('error').innerHTML = "Por favor introduce un captcha valido"; 
+        alert("Por favor introduce un captcha valido");
+        generateCaptcha();
+        //        return false;
+
+        
+             }
+         }
+         function removeSpaces(string){
+           return string.split(' ').join('');
+         }
+     </script>    
+
+</head>
+
+<body onload="generateCaptcha();">
+    <script type="module" src="validarFormulario.js"></script>
+     <script type="module" src="/jCaptcha.js"></script> 
+    <!-- <script src="jCaptcha.js"></script> -->
+    <h1 id="login">Login</h1>
+    
+    <form action="comprobacion.php" method="GET"  id="formulario" > 
+        
+        <!-- tengo que iniciar un servidor para que se puedan despachar paginas html con el metodo POST -->
+        
+        <input type="text" name="identificador" placeholder="Escribe tu identificador" data-tam="13"  required class="id">
+        
+        <input type="password" name="contraseña"  placeholder="Escribe tu contraseña" data-tam="8" required class="pass">
+        
+        <!-- <input class="jCaptcha" type="text" placeholder="Escribe el resultado, por favor" id="captcha"> -->
+        
+        <!-- CAPTCHA -->
+        <h2> Por favor llena el captcha</h2>
+        <table>
+           <tr>
+              <td>
+              </td>
+           </tr>
+           <tr>
+              <td>
+                 <input type="text" id="mainCaptcha"readonly="readonly" required/> 
+                 <input type="button" id="refresh" value="Otro" onclick="generateCaptcha();" />
+              </td>
+           </tr>
+           <tr>
+              <td>
+                 <input type="text" id="txtInput"/>    
+              </td>
+           </tr>
+           <tr>
+              <td>
+                 <input id="Button1" type="button" value="Comprobar" onclick="CheckValidCaptcha();"/>
+              </td>
+           </tr>
+           <tr>
+              <td><span id="error" style="color:red"></span></td>
+           </tr>
+           <tr>
+              <td><span id="success" style="color:green"></span></td>
+           </tr>
+        </table>
+
+        <!-- <input type="submit" value="Enviar" onclick="myCaptcha.validate()" id="boton"> -->
+        <!-- <input type="button" onClick=comprobacionHandler> -->
+    </form>
+<!-- <script>
+    let comprobacionHandler = () => {
+        let dom = document
+        
+        let identificador = dom.querySelector('[name = "identificador"]');
+        let contrasena = dom.querySelector('[name = "contraseña"]');
+
+        
+
+
+
+
+    }
+
+
+</script> -->
+</body>
+
+</html>
