@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Busco nobia</title>
+   <link rel="stylesheet" href="main.css">
+
+
+   <script src="funciones.js"></script>
+   <script src="validarFormulario.js"></script>
+
+</head>
+<script>
+   let cargarFunc = () => {
+      generateCaptcha();
+      validarFormulario();
+   }
+</script>
+
+<body onload="cargarFunc()">
+
+   <h1 id="login">Login</h1>
+
+   <form action="comprobacion.php" method="GET" id="formulario">
+
+      <!-- NOTA: tengo que iniciar un servidor para que se puedan despachar paginas html con el metodo POST -->
+
+      <input type="text" name="identificador" placeholder="Escribe tu identificador" data-tam="13" required class="id">
+      <div>Ejemplo Alonso1*</div>
+      <input type="password" name="contraseña" placeholder="Escribe tu contraseña" data-tam="8" required class="pass">
+      <a href="./registro.html" id="boton-r">Registrate</a>
+      <h2> Por favor, llena el captcha</h2>
+      <table>
+         <tr>
+            <td>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <input type="text" id="mainCaptcha" readonly="readonly" required />
+               <input type="button" id="refresh" value="Otro" onclick="generateCaptcha();" />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <input type="text" id="txtInput" />
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <input id="Button1" type="button" value="Comprobar" onclick="CheckValidCaptcha();" />
+            </td>
+         </tr>
+         <tr>
+            <td><span id="error" style="color:red"></span></td>
+         </tr>
+         <tr>
+            <td><span id="success" style="color:green"></span></td>
+         </tr>
+      </table>
+
+      <input type="submit" value="Enviar" onclick="
+      return CheckData(
+         validaciones.identificador,
+         validaciones.contraseña,
+         CheckValidCaptcha()
+        );" id="boton">
+
+   </form>
+</body>
+
+</html>

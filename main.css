@@ -1,0 +1,80 @@
+/* NOTA: El XAMPP tiene problemas con los links de css cuando estan en carpetas distintas a archivos JavaScript que los importan, por eso cambie el main.css a la misma carpeta*/
+body {
+    /* background: no-repeat; */
+    background-size: cover;
+    /* background-image: url("/static/beso2.jpg"); */
+    background-color: aliceblue;
+
+}
+
+h1 {
+    color: blue;
+    background-color: inherit;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#reg {
+    color: red;
+
+}
+
+h2 {
+    color: violet;
+    font-style: normal;
+}
+
+form {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    width: 50%;
+    height: 3rem;
+    margin: 0px 0px 0px 0px;
+    display: block;
+    border-style: groove;
+
+}
+
+#mainCaptcha {
+    border-style: ridge;
+    font-weight: 900;
+}
+
+#boton {
+    margin: 0px 10px 10px 10px;
+    background-color: darkgrey;
+    background-color: green;
+
+
+
+
+}
+
+span {
+    transition: 1s;
+}
+
+#identificador {
+    background-color: red;
+    color: yellow;
+    transition: 1s;
+
+}
+
+#contraseña {
+    background-color: red;
+    color: yellow;
+    transition: 1s;
+}
+
+
+.active {
+    background-color: red;
+    color: yellow;
+    transition: 1s;
+}

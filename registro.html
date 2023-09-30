@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bemdo cxo</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="validarFormulario.js"></script>
+    <script src="funciones.js"></script>
+</head>
+
+<body onload="validarFormulario()">
+    <!-- NOTA: USAR EL MÉTODO GET PARA QUE LA EJECUCION DEL CÓDIGO SE QUEDE EN LA PAGINA Y PODER DEBU-GEARLA -->
+    <form action="registro.php" method="POST" id="formulario" name="formulario">
+        <h1 id="reg">Registrate</h1>
+        <input type="text" name="identificador" placeholder="Escribe un identificador" data-tam="13" required
+            class="id">
+        <div>Ejemplo Alonso1*</div>
+        <input type="password" name="contraseña" placeholder="Escribe una contraseña" data-tam="8" required
+            class="pass">
+        <input type="password" name="rep-con" placeholder="Repetir contraseña" data-tam="8" required class="pass">
+        
+        <input type="submit" value="Enviar" onclick="
+    return validarContraseña();" id="boton">
+    <a href="./index.html">Login</a>
+    </form>
+</body>
+
+</html>
